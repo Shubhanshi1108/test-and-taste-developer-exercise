@@ -14,6 +14,7 @@ namespace Test_Taste_Console_Application.Domain.Objects
             Id = moonDto.Id;
             MassValue = moonDto.MassValue;
             MassExponent = moonDto.MassExponent;
+            MoonGravity=moonDto.MoonGravity;
         }
     }
 }

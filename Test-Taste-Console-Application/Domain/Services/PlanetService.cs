@@ -25,7 +25,7 @@ namespace Test_Taste_Console_Application.Domain.Services
         public IEnumerable<Planet> GetAllPlanets()
         {
             var allPlanetsWithTheirMoons = new Collection<Planet>();
-
+            Console.WriteLine("Loading data...");
             var response = _httpClientService.Client
                 .GetAsync(UriPath.GetAllPlanetsWithMoonsQueryParameters)
                 .Result;
@@ -64,6 +64,8 @@ namespace Test_Taste_Console_Application.Domain.Services
                 }
                 allPlanetsWithTheirMoons.Add(new Planet(planet));
             }
+                        
+            Console.WriteLine("Writing data...");
 
             return allPlanetsWithTheirMoons;
         }

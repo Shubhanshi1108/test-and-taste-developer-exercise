@@ -12,7 +12,21 @@ namespace Test_Taste_Console_Application.Domain.Objects
         public ICollection<Moon> Moons { get; set; }
         public float AverageMoonGravity
         {
-            get => 0.0f;
+            get
+            {
+                if (Moons == null || Moons.Count == 0)
+                {
+                    return 0.0f;
+                }
+
+                float totalMoonGravity = 0.0f;
+                for (int i = 0; i < Moons.Length; i++)
+                {
+                    totalMoonGravity += Moons[i].Gravity;
+                }
+
+                return totalMoonGravity / Moons.Count;
+            }
         }
 
         public Planet(PlanetDto planetDto)
