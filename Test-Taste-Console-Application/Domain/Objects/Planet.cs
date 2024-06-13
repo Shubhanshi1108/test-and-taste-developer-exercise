@@ -10,24 +10,9 @@ namespace Test_Taste_Console_Application.Domain.Objects
         public string Id { get; set; }
         public float SemiMajorAxis { get; set; }
         public ICollection<Moon> Moons { get; set; }
-        public float AverageMoonGravity
-        {
-            get
-            {
-                if (Moons == null || Moons.Count == 0)
-                {
-                    return 0.0f;
-                }
+        //using nested ternary operator 
+        public float AverageMoonGravity => Moons != null ? Moons.Count > 0 ? Moons.Sum(moon => moon.Gravity) / (float)Moons.Count :0.0f :0.0f;
 
-                float totalMoonGravity = 0.0f;
-                for (int i = 0; i < Moons.Length; i++)
-                {
-                    totalMoonGravity += Moons[i].Gravity;
-                }
-
-                return totalMoonGravity / Moons.Count;
-            }
-        }
 
         public Planet(PlanetDto planetDto)
         {
