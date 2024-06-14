@@ -8,6 +8,7 @@ namespace Test_Taste_Console_Application.Domain.Objects
         public string Id { get; set; }
         public float MassValue { get; set; }
         public float MassExponent { get; set; }
+        public float MoonGravity { get; set; }
 
         public Moon(MoonDto moonDto)
         {

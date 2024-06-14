@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Test_Taste_Console_Application.Domain.DataTransferObjects;
 
 namespace Test_Taste_Console_Application.Domain.Objects
@@ -11,7 +12,7 @@ namespace Test_Taste_Console_Application.Domain.Objects
         public float SemiMajorAxis { get; set; }
         public ICollection<Moon> Moons { get; set; }
         //using nested ternary operator 
-        public float AverageMoonGravity => Moons != null ? Moons.Count > 0 ? Moons.Sum(moon => moon.Gravity) / (float)Moons.Count :0.0f :0.0f;
+        public float AverageMoonGravity => Moons != null ? Moons.Count > 0 ? Moons.Sum(moon => moon.MoonGravity) / (float)Moons.Count :0.0f :0.0f;
 
 
         public Planet(PlanetDto planetDto)
